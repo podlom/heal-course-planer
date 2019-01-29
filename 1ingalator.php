@@ -23,14 +23,20 @@ foreach ($datesPeriod as $dt) {
     $daysInCourse ++;
     //
     if ($daysInCourse == 1) {
-        $dosesLeft -= 1;
-        $dosesUsed ++;
+        $dosesPerDay = 1;
+        $dosesLeft -= $dosesPerDay;
+        $dosesUsed += $dosesPerDay;
     } else {
-        $dosesLeft -= 2;
-        $dosesUsed += 2;
+        $dosesPerDay = 2;
+        $dosesLeft -= $dosesPerDay;
+        $dosesUsed += $dosesPerDay;
     }
     //
-    echo 'Day ' . $daysInCourse . ': ' . var_export($dt->format('Y-m-d'), 1) . ' flacon: ' . $flacon . ' doses used: ' . $dosesUsed . ' doses left: ' . $dosesLeft . PHP_EOL;
+    echo 'Day ' . $daysInCourse . ': ' .
+        var_export($dt->format('Y-m-d'), 1) .
+        ' flacon: ' . $flacon .
+        ' doses used: ' . $dosesUsed .
+        ' doses left: ' . $dosesLeft . PHP_EOL;
     //
     if ($daysInCourse == 1) {
         if ($dosesLeft <= 1) {

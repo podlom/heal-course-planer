@@ -19,13 +19,16 @@ $box = 1;
 $dosesLeft = NUM_DOSES;
 $dosesUsed = 0;
 $daysInCourse = 0;
+$dosesPerDay = 1;
 foreach ($datesPeriod as $dt) {
     $daysInCourse ++;
+    $dosesLeft -= $dosesPerDay;
+    $dosesUsed += $dosesPerDay;
     //
-    $dosesLeft -= 1;
-    $dosesUsed ++;
-    //
-    echo 'Day ' . $daysInCourse . ': ' . var_export($dt->format('Y-m-d'), 1) . ' box: ' . $box . ' doses used: ' . $dosesUsed . ' doses left: ' . $dosesLeft . PHP_EOL;
+    echo 'Day ' . $daysInCourse . ': ' . var_export($dt->format('Y-m-d'), 1) .
+        ' box: ' . $box .
+        ' doses used: ' . $dosesUsed .
+        ' doses left: ' . $dosesLeft . PHP_EOL;
     //
     if ($dosesLeft <= 1) {
         $box ++;
