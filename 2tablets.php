@@ -5,6 +5,7 @@ define('NUM_DOSES', 28);
 $dt1 = new \DateTime;
 $courseStart = '29.11.2018';
 $period = '3 months';
+$boxPrice = 254.95;
 
 $courseStartDtTm = $dt1->createFromFormat('d.m.Y', $courseStart);
 echo 'Course start: ' . var_export($courseStartDtTm->format('Y-m-d'), 1) . PHP_EOL;
@@ -22,16 +23,15 @@ $daysInCourse = 0;
 $dosesPerDay = 1;
 foreach ($datesPeriod as $dt) {
     $daysInCourse ++;
-    $dosesLeft -= $dosesPerDay;
     $dosesUsed += $dosesPerDay;
-    //
+    $dosesLeft -= $dosesPerDay;
     echo 'Day ' . $daysInCourse . ': ' . var_export($dt->format('Y-m-d'), 1) .
         ' box: ' . $box .
         ' doses used: ' . $dosesUsed .
         ' doses left: ' . $dosesLeft . PHP_EOL;
-    //
-    if ($dosesLeft <= 1) {
+    if ($dosesLeft == 0) {
         $box ++;
         $dosesLeft = NUM_DOSES;
     }
 }
+echo 'Course total price: ' . ($boxPrice * $box) . ' UAH' . PHP_EOL;

@@ -5,6 +5,7 @@ define('NUM_DOSES', 60);
 $dt1 = new \DateTime;
 $courseStart = '29.11.2018';
 $period = '3 months';
+$flaconPrice = 441.95;
 
 $courseStartDtTm = $dt1->createFromFormat('d.m.Y', $courseStart);
 echo 'Course start: ' . var_export($courseStartDtTm->format('Y-m-d'), 1) . PHP_EOL;
@@ -50,3 +51,4 @@ foreach ($datesPeriod as $dt) {
         }
     }
 }
+echo 'Course total price: ' . ($flaconPrice * $flacon) . ' UAH' . PHP_EOL;

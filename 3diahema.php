@@ -22,21 +22,17 @@ $dosesUsed = 0;
 $daysInCourse = 0;
 foreach ($datesPeriod as $dt) {
     $daysInCourse ++;
-    //
     if ($daysInCourse == 1) {
         $dosesPerDay = 1;
     } else {
         $dosesPerDay = 2;
     }
-    //
     $dosesLeft -= $dosesPerDay;
     $dosesUsed += $dosesPerDay;
-    //
     echo 'Day ' . $daysInCourse . ': ' . var_export($dt->format('Y-m-d'), 1) .
         ' box: ' . $box .
         ' doses used: ' . $dosesUsed .
         ' doses left: ' . $dosesLeft . PHP_EOL;
-    //
     if ($dosesLeft <= $dosesPerDay) {
         $box ++;
         $dosesLeft = NUM_DOSES;
