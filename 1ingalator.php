@@ -22,7 +22,6 @@ $dosesUsed = 0;
 $daysInCourse = 0;
 foreach ($datesPeriod as $dt) {
     $daysInCourse ++;
-    //
     if ($daysInCourse == 1) {
         $dosesPerDay = 1;
         $dosesLeft -= $dosesPerDay;
@@ -39,16 +38,9 @@ foreach ($datesPeriod as $dt) {
         ' doses used: ' . $dosesUsed .
         ' doses left: ' . $dosesLeft . PHP_EOL;
     //
-    if ($daysInCourse == 1) {
-        if ($dosesLeft <= 1) {
-            $flacon ++;
-            $dosesLeft = NUM_DOSES;
-        }
-    } else {
-        if ($dosesLeft <= 2) {
-            $flacon ++;
-            $dosesLeft = NUM_DOSES;
-        }
+    if ($dosesLeft <= $dosesPerDay) {
+        $flacon ++;
+        $dosesLeft = NUM_DOSES;
     }
 }
 echo 'Course total price: ' . ($flaconPrice * $flacon) . ' UAH' . PHP_EOL;

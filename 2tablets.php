@@ -29,7 +29,7 @@ foreach ($datesPeriod as $dt) {
         ' box: ' . $box .
         ' doses used: ' . $dosesUsed .
         ' doses left: ' . $dosesLeft . PHP_EOL;
-    if ($dosesLeft == 0) {
+    if ($dosesLeft == $dosesPerDay) {
         $box ++;
         $dosesLeft = NUM_DOSES;
     }
