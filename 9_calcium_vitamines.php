@@ -1,11 +1,16 @@
 <?php
 
-define('NUM_DOSES', 60);
+define('NUM_DOSES', 30);
+
+// вітаміни: Кальцемін адванс
+// призначила: Бакшутова Наталя Олексіївна
+// приймати 1 місяць по 1 таблетці на день
+
 
 $dt1 = new \DateTime;
-$courseStart = '04.09.2022';
-$boxPrice = 0;
-$dosesPerDay = 2;
+$courseStart = '10.10.2023';
+$boxPrice = 191;
+$dosesPerDay = 1;
 $firstDayDoses = 1;
 
 $courseStartDtTm = $dt1->createFromFormat('d.m.Y', $courseStart);
